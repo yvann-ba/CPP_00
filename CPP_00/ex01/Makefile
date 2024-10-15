@@ -3,17 +3,25 @@ CPP = /bin/c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = megaphone.cpp
+SRCS =	main.cpp PhoneBook.cpp \
+		Contact.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJ_DIR = ./obj
+OBJS = $(SRCS:./%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
+$(OBJ_DIR)/%.o: ./%.c | $(OBJ_DIR)
+	@$(CPP) -c $< -o $@ $(CPPFLAGS)
+	
+$(OBJ_DIR):
+	@/bin/mkdir -p $(OBJ_DIR)
+
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
