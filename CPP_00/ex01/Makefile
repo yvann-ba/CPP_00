@@ -1,7 +1,7 @@
 NAME = ./phonebook
 CPP = /bin/c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS =	main.cpp PhoneBook.cpp \
 		Contact.cpp

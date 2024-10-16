@@ -2,35 +2,30 @@
 
 int main()
 {
-    Contact contact;
+    Contact contact[8];
     PhoneBook phonebook;
-    Contact contact_array[8];
+    std::string command;
     int i = 0;
     int nb_contacts = 0;
-    std::string command;
     while (1)
     {
         std::cout << "Please enter one of this command: ADD, SEARCH, EXIT" << std::endl; 
         std::cin >> command;
         if (command == "ADD")
         {
-            contact.get_contact(contact_array[8]);
-            if (i >= 8)
+            if (i == 8)
             {
-                std::cout << "We have erased your oldest contact sorry :p";
+                std::cout << "Your oldest contact have been removed, to add this new one" << std::endl;
                 i = 0;
             }
-            while(i < 8)
-            {
-                contact_array[i] = contact;
-                i++;
-            }
+            contact[i].set_contact();
+            i++;
             nb_contacts++;
             std::cout << "Contact added !" << std::endl << std::endl;
         }
         else if (command == "SEARCH")
         {
-            phonebook.print_phonebook(&nb_contacts, &contact_array[8]);
+            phonebook.print_phonebook(nb_contacts, contact);
                 
 
         }
