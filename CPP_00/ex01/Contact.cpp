@@ -42,7 +42,6 @@ std::string Contact::get_darkestSecret() const {
     return this->_darkestSecret;
 }
 
-
 void    Contact::set_contact()
 {
     std::string message = "";

@@ -9,6 +9,17 @@ PhoneBook::~PhoneBook()
 {
     
 }
+
+std::string truncate(std::string message)
+{
+    if (message.length() > 10)
+    {
+        message = message.substr(0, 9);
+        message += '.';
+    }
+    return message;
+}
+
 void PhoneBook::print_phonebook(int nb_contacts, Contact contact[8])
 {
     std::cout << std::setw(10) << "Index" << "|";
@@ -21,9 +32,9 @@ void PhoneBook::print_phonebook(int nb_contacts, Contact contact[8])
     for(int i = 0; i < nb_contacts; i++)
     {
         std::cout << std::setw(10) << i + 1 << "|";
-        std::cout << std::setw(10) << contact[i].get_firstName() << "|";
-        std::cout << std::setw(10) << contact[i].get_lastName() << "|";
-        std::cout << std::setw(10) << contact[i].get_nickname() << std::endl;
+        std::cout << std::setw(10) << truncate(contact[i].get_firstName()) << "|";
+        std::cout << std::setw(10) << truncate(contact[i].get_lastName()) << "|";
+        std::cout << std::setw(10) << truncate(contact[i].get_nickname()) << std::endl;
     }
 
     std::cout << std::endl;
