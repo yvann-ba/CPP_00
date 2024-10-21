@@ -1,20 +1,16 @@
-#include "Zombie.hpp"
+#include <iostream>
 
 int main()
 {
-    int nbZombies = 10;
+    std::string str = "HI THIS IS BRAIN";
+    std::string *stringPTR = &str;
+    std::string& stringREF = str;
 
-    std::cout << "Initialization of the zombies horde" << std::endl;
-    Zombie *zombies = zombieHorde(nbZombies, "Steve");
-    
-    std::cout << std::endl;
+    std::cout << &str << std::endl;
+    std::cout << stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
 
-    std::cout << "Annoucing the zombies" << std::endl;
-    for(int i = 0; i < nbZombies; i++)
-        zombies[i].announce();
-
-    std::cout << std::endl;
-
-    std::cout << "Kill the zombies to avoid memory leaks" << std::endl;
-    delete [] zombies;
+    std::cout << str << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;
 }
