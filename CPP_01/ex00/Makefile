@@ -1,5 +1,5 @@
 NAME = ./BraiiiiiiinnnzzzZ
-CPP = /bin/c++
+CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 

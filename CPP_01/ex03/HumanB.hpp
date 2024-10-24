@@ -1,3 +1,6 @@
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
 #include "Weapon.hpp"
 
 class HumanB
@@ -8,3 +11,5 @@ class HumanB
     public:
         void attack();
 };
+
+#endif

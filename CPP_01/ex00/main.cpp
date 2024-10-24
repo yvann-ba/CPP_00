@@ -13,4 +13,6 @@ int main()
 
     std::cout << std::endl;
     delete heapZombie;
+
+    return 0;
 }
