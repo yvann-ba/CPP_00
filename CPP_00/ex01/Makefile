@@ -1,24 +1,24 @@
 NAME = ./phonebook
 CPP = /bin/c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	main.cpp PhoneBook.cpp \
-		Contact.cpp
+		Contact.cpp utils.cpp
 
 OBJ_DIR = ./obj
-OBJS = $(SRCS:./%.cpp=$(OBJ_DIR)/%.o)
+OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: ./%.c | $(OBJ_DIR)
-	@$(CPP) -c $< -o $@ $(CPPFLAGS)
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	$(CPP) -c $< -o $@ $(CPPFLAGS)
 	
 $(OBJ_DIR):
-	@/bin/mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)
