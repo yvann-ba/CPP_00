@@ -9,6 +9,10 @@ class HumanA
         Weapon _weapon;
         std::string _name;
     public:
+        HumanA();
+        ~HumanA();
+        void attack();
+
 };
 
 #endif
