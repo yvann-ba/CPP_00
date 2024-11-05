@@ -59,8 +59,6 @@ int main(int ac, char **av)
         if (filein_content.empty())
             return (1);
         std::string fileout_content = replace_occurences(filein_content, s1, s2);
-        std::cout << "file_in : " << filein_content << std::endl;
-        std::cout << "file_out : " << fileout_content << std::endl;
         if (write_to_new_file(filename, fileout_content) == 1)
             return 1;
     }

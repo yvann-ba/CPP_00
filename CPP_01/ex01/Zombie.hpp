@@ -12,7 +12,6 @@ public:
     Zombie(std::string name);
     ~Zombie();
     void announce();
-    std::string getName() const;
     void setName(std::string name);
 };
 
