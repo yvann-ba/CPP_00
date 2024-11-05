@@ -4,9 +4,24 @@ Harl::Harl() {}
 
 Harl::~Harl() {}
 
-void Harl::complain(std::string level)
+void Harl::complain(const std::string &level)
 {
-    std::map<std::string, void (Harl::*)()>
+    std::map<std::string, void (Harl::*)()> logLevels;
+        logLevels["DEBUG"] = &Harl::debug;
+        logLevels["INFO"] = &Harl::info;
+        logLevels["WARNING"] = &Harl::warning;
+        logLevels["ERROR"] = &Harl::error;
+        
+    std::map<std::string, void (Harl::*)()>::iterator it = logLevels.begin();
+    for (; it != logLevels.end(); ++it)
+    {
+        if (it->first == level)
+        {
+            (this->*(it->second))();
+            return;
+        }
+    }
+    std::cout << "Invalid log level" << std::endl;
 }
 
 void Harl::debug() {
