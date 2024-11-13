@@ -19,6 +19,8 @@ class Fixed
 
         float toFloat() const;
         int toInt() const;
+
+        friend std::ostream& operator<<(std::ostream& os, const Fixed& fp);
     private:
         int _rawBits;
         const static int _fractionalBits = 8;

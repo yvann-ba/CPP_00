@@ -9,9 +9,10 @@ Fixed::Fixed(const int integer) : _rawBits(integer << _fractionalBits)
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float number) : _rawBits(static_cast<int32_t>(number * (1 << _fractionalBits)))
+Fixed::Fixed(const float number)
 {
     std::cout << "Float constructor called" << std::endl;
+    _rawBits = roundf(number * (1 << this->_fractionalBits));
 }
 
 Fixed::Fixed(const Fixed& other) : _rawBits(other._rawBits) {
@@ -44,4 +45,9 @@ int Fixed::toInt() const {
 
 float Fixed::toFloat() const {
     return static_cast<float>(_rawBits) / (1 << _fractionalBits);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fp) {
+    os << fp.toFloat();
+    return os;
 }
