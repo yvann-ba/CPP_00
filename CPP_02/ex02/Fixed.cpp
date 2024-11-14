@@ -51,3 +51,49 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fp) {
     os << fp.toFloat();
     return os;
 }
+
+
+bool Fixed::operator>(const Fixed& other) const {
+    return this->_rawBits >other._rawBits;
+}
+bool Fixed::operator<(const Fixed& other) const {
+    return this->_rawBits < other._rawBits;
+}
+bool Fixed::operator>=(const Fixed& other) const {
+    return this->_rawBits >= other._rawBits;
+}
+bool Fixed::operator<=(const Fixed& other) const {
+    return this->_rawBits <= other._rawBits;
+}
+bool Fixed::operator==(const Fixed& other) const {
+    return this->_rawBits == other._rawBits;
+}
+bool Fixed::operator!=(const Fixed& other) const {
+    return this->_rawBits != other._rawBits;
+}
+
+Fixed Fixed::operator+(const Fixed& other) const {
+    Fixed result;
+    result._rawBits = this->_rawBits + other._rawBits;
+    return result;
+}
+
+Fixed Fixed::operator-(const Fixed& other) const {
+    Fixed result;
+    result._rawBits = this->_rawBits - other._rawBits;
+    return result;
+}
+
+Fixed Fixed::operator*(const Fixed& other) const {
+    Fixed result;
+    long temp = static_cast<long>(this->_rawBits) * static_cast<long>(other._rawBits);
+    result._rawBits = static_cast<int>(temp >> _fractionalBits);
+    return result;
+}
+
+Fixed Fixed::operator/(const Fixed& other) const {
+    Fixed result;
+    long temp = static_cast<long>(this->_rawBits) / static_cast<long>(other._rawBits);
+    result._rawBits = static_cast<int>(temp >> _fractionalBits);
+    return result;
+}
