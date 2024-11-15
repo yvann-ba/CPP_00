@@ -93,7 +93,61 @@ Fixed Fixed::operator*(const Fixed& other) const {
 
 Fixed Fixed::operator/(const Fixed& other) const {
     Fixed result;
-    long temp = static_cast<long>(this->_rawBits) / static_cast<long>(other._rawBits);
-    result._rawBits = static_cast<int>(temp >> _fractionalBits);
+    long temp = (static_cast<long>(this->_rawBits) << _fractionalBits) / other._rawBits;
+    result._rawBits = static_cast<int>(temp);
     return result;
+}
+
+
+Fixed& Fixed::operator++() {
+    ++_rawBits;
+    return *this;
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed temp = *this;
+    ++_rawBits;
+    return temp;
+}
+
+Fixed& Fixed::operator--() {
+    --_rawBits;
+    return *this;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed temp = *this;
+    --_rawBits;
+    return temp;
+}
+
+Fixed& Fixed::min(Fixed& f1, Fixed& f2)
+{
+    if (f1 < f2)
+        return f1;
+    else
+        return f2;
+}
+const Fixed& Fixed::min(const Fixed& f1, const Fixed& f2)
+{
+    if (f1 < f2)
+        return f1;
+    else
+        return f2;
+}
+
+Fixed& Fixed::max(Fixed& f1, Fixed& f2)
+{
+    if (f1 > f2)
+        return f1;
+    else
+        return f2;
+}
+
+const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2)
+{
+    if (f1 > f2)
+        return f1;
+    else
+        return f2;
 }
