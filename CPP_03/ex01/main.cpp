@@ -11,5 +11,7 @@ int main( void ) {
     c = b;
     ClapTrap d(a);
 
+    ClapTrap rh = new ScavTrap();
+
     return 0;
 }
