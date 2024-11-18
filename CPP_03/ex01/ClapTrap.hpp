@@ -12,7 +12,7 @@ class ClapTrap
         int _attack_damage;
     public:
         ClapTrap();
-        ClapTrap(const std::string& name);
+        ClapTrap(const std::string name);
         ClapTrap(const ClapTrap& rhs);
         ClapTrap &operator=(const ClapTrap &rhs);
         ~ClapTrap();
