@@ -3,7 +3,7 @@ CPP = /bin/c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ_DIR = ./obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
