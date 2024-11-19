@@ -11,8 +11,8 @@ FragTrap::FragTrap() : ClapTrap() {
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     _name = name;
     _hit_points = 100;
-    _energy_points = 50;
-    _attack_damage = 20;
+    _energy_points = 100;
+    _attack_damage = 30;
     std::cout << "FragTrap Parametrized Constructor Called for " << _name << std::endl;
 }
 
