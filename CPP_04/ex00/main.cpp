@@ -12,9 +12,9 @@ int main() {
 
         std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
-        j->makeSound(); // will output the dog sound
-        i->makeSound(); // will output the cat sound
-        meta->makeSound(); // will output the animal sound
+        j->makeSound(); 
+        i->makeSound(); 
+        meta->makeSound();
 
         delete meta;
         delete j;
@@ -28,7 +28,7 @@ int main() {
         const WrongAnimal* i = new WrongCat();
 
         std::cout << i->getType() << " " << std::endl;
-        i->makeSound(); // will output the WrongAnimal sound, not the WrongCat sound
+        i->makeSound();
         meta->makeSound();
         delete meta;
         delete i;

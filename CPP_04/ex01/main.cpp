@@ -14,15 +14,14 @@ int main() {
 
     std::cout << "-------------------------------------" << std::endl;
 
-    // Deep copy test
     {
         Dog dog1;
         dog1.setIdea(0, "I want to play");
         dog1.setIdea(1, "I want to sleep");
 
-        Dog dog2(dog1); // Copy constructor
+        Dog dog2(dog1);
         Dog dog3;
-        dog3 = dog1; // Assignment operator
+        dog3 = dog1; 
 
         std::cout << "dog1 idea[0]: " << dog1.getIdea(0) << std::endl;
         std::cout << "dog2 idea[0]: " << dog2.getIdea(0) << std::endl;
