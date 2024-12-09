@@ -1,9 +1,9 @@
-NAME = ./ex00
+NAME = ./ex01
 CPP = /bin/c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS =	main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
+SRCS =	main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 
 OBJ_DIR = ./obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
