@@ -1,10 +1,11 @@
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 #include <iostream>
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 class Ice : public AMateria {
+public:
     Ice();
     Ice(const Ice &other);
     Ice &operator=(const Ice &other);

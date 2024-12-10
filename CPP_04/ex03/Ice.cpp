@@ -1,23 +1,23 @@
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {
-    std::cout << "Ice Default constructor called" << std::endl;
+    //std::cout << "Ice Default constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice &other) : AMateria(other) {
-    std::cout << "Ice copy constructor called" << std::endl;
+    //std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &other) {
     if (this != &other)
         AMateria::operator=(other);
-    std::cout << "Ice assignement operator called" << std::endl;
+    //std::cout << "Ice assignement operator called" << std::endl;
     return *this;
 
 }
 
 Ice::~Ice() {
-    std::cout << "Ice destructor called" << std::endl;
+    //std::cout << "Ice destructor called" << std::endl;
 }
 
 AMateria *Ice::clone() const {
@@ -25,5 +25,5 @@ AMateria *Ice::clone() const {
 }
 
 void Ice::use(ICharacter &target) {
-    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl; 
+    std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl; 
 }
