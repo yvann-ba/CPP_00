@@ -1,62 +1,24 @@
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-int main() {
-    {
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
-
-        delete j;
-        delete i;
-    }
-
-    std::cout << "-------------------------------------" << std::endl;
-
-    {
-        Dog dog1;
-        dog1.setIdea(0, "I want to play");
-        dog1.setIdea(1, "I want to sleep");
-
-        Dog dog2(dog1);
-        Dog dog3;
-        dog3 = dog1; 
-
-        std::cout << "dog1 idea[0]: " << dog1.getIdea(0) << std::endl;
-        std::cout << "dog2 idea[0]: " << dog2.getIdea(0) << std::endl;
-        std::cout << "dog3 idea[0]: " << dog3.getIdea(0) << std::endl;
-
-        dog1.setIdea(0, "I am hungry now!");
-
-        std::cout << "After modification:" << std::endl;
-        std::cout << "dog1 idea[0]: " << dog1.getIdea(0) << std::endl;
-        std::cout << "dog2 idea[0]: " << dog2.getIdea(0) << std::endl;
-        std::cout << "dog3 idea[0]: " << dog3.getIdea(0) << std::endl;
-    }
-
-    std::cout << "-------------------------------------" << std::endl;
-
-    {
-        int n = 10;
-        Animal* animals[n];
-
-        for (int k = 0; k < n; k++) {
-            if (k < n / 2)
-                animals[k] = new Dog();
-            else
-                animals[k] = new Cat();
-        }
-
-        Dog *dogPtr = dynamic_cast<Dog*>(animals[0]);
-        if (dogPtr) {
-            dogPtr->setIdea(0, "Chase cats!");
-        }
-
-        for (int k = 0; k < n; k++) {
-            delete animals[k];
-        }
-    }
-
+int main()
+{
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    delete bob;
+    delete me;
+    delete src;
     return 0;
 }
