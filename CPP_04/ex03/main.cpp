@@ -30,7 +30,6 @@ int main()
     me->equip(tmp);  
     me->use(0, *bob);
 
-    // Cleanup
     delete bob;
     delete me;
     delete src;

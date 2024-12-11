@@ -4,13 +4,17 @@
 
 Character::Character() : name("default") {
     //std::cout << "Character Default constructor called" << std::endl;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) {
         inventory[i] = NULL;
+        floor[i] = NULL;
+    }        
 }
 Character::Character(std::string const &name) : name(name) {
     //std::cout << "Character Parameterized constructor called" << std::endl;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) {
         inventory[i] = NULL;
+        floor[i] = NULL;
+    }
 }
 
 Character::Character(const Character &other) : name(other.name){
@@ -42,8 +46,8 @@ Character::~Character() {
     //std::cout << "Character destructor called" << std::endl;
     for (int i = 0; i < 4; i++)
         delete inventory[i];
-    for (size_t i = 0; i < droppedMaterias.size(); i++)
-        delete droppedMaterias[i];
+    for (int i = 0; i < 4; i++)
+        delete floor[i];
 }
 
 std::string const &Character::getName() const {
@@ -63,7 +67,7 @@ void Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
     if (idx >= 0 && idx < 4 && inventory[idx]) {
-        droppedMaterias.push_back(inventory[idx]);
+        floor[idx] = inventory[idx];
         inventory[idx] = NULL;
     }
 }

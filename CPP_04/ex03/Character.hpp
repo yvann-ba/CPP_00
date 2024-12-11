@@ -4,13 +4,12 @@
 #include <iostream>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
-#include <vector>
 
 class Character : public ICharacter {
 private:
     std::string name;
     AMateria* inventory[4];
-    std::vector<AMateria*> droppedMaterias;
+    AMateria* floor[4];
 public:
     Character();
     Character(std::string const &name);
