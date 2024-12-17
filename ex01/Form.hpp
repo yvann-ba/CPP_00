@@ -17,19 +17,24 @@ public:
     public:
         virtual const char* what() const throw();
     };
-    Form(const std::string &name, int grade);
+
+    Form();
+    Form(const std::string &name, const int gradeSign, 
+    const int gradeExecute);
     Form(const Form& other);
     Form &operator=(const Form& other);
     ~Form();
 
     std::string const & getName() const;
-    bool &getIsSigned() const;
+
+    bool const &getIsSigned() const;
+    
     int const &getGradeSign() const;
     int const &getGradeExecute() const;
 
     void beSigned(Bureaucrat &b);
 
-    friend std::ostream& operator<<(std::ostream& os, const Form& b);
+    friend std::ostream& operator<<(std::ostream& os, const Form& f);
     
 private:
     const std::string _name;

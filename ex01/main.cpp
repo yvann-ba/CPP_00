@@ -1,36 +1,25 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main () {
-    try 
-    {
-        Bureaucrat poppy("poppy", 1);
-        std::cout << poppy << std::endl;
-
-        poppy.incrementGrade();
-        std::cout << poppy << std::endl;
-    }
-    catch(const std::exception& e) 
-    {
-        std::cerr << e.what() << '\n';
-    }
-
     try
     {
-        Bureaucrat invalidHigh("InvalidHigh", 0);
+        Bureaucrat poppey("poppey", 30);
+        Form tax("Tax Form", 50, 25);
+
+        std::cout << tax << std::endl;
+        poppey.signForm(tax);
+        std::cout << tax << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    try
-    {
-        Bureaucrat invalidLow("InvalidLow", 151);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
+    Bureaucrat CaptainFlam("Captain Flam", 50);
+    Form SpaceTax("Space Tax form", 20, 15);
+    std::cout << SpaceTax << std::endl;
+    CaptainFlam.signForm(SpaceTax);
+    
     return 0;
 }

@@ -1,7 +1,11 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+    std::cout << "Bureaucrat Default Constructor Called" << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
-    std::cout << "Bureaucrat Default Constructor Called" << std::endl;
+    std::cout << "Bureaucrat Parameterized Constructor Called" << std::endl;
     
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
@@ -10,9 +14,8 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
     std::cout << "Bureaucrat Copy Constructor called" << std::endl;
-    *this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
@@ -58,4 +61,15 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
     return "Bureaucrat: Grade is too low!";
+}
+
+void Bureaucrat::signForm(Form &form) {
+    try {
+        form.beSigned(*this);
+        std::cout << getName() << " signed " << form.getName() << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << getName() << " couldn't sign " << form.getName() 
+        << " because " << e.what() << std::endl;
+    }
 }

@@ -1,5 +1,9 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+    std::cout << "Bureaucrat Default Constructor Called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
     std::cout << "Bureaucrat Default Constructor Called" << std::endl;
     
@@ -10,9 +14,8 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
     std::cout << "Bureaucrat Copy Constructor called" << std::endl;
-    *this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
