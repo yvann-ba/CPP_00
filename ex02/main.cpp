@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main () {
     try
     {
         Bureaucrat poppey("poppey", 30);
-        Form tax("Tax Form", 50, 25);
+        AForm tax("Tax Form", 50, 25);
 
         std::cout << tax << std::endl;
         poppey.signForm(tax);
@@ -17,7 +17,7 @@ int main () {
     }
 
     Bureaucrat CaptainFlam("Captain Flam", 50);
-    Form SpaceTax("Space Tax form", 20, 15);
+    AForm SpaceTax("Space Tax form", 20, 15);
     std::cout << SpaceTax << std::endl;
     CaptainFlam.signForm(SpaceTax);
     

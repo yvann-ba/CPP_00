@@ -3,7 +3,9 @@ CPP = /bin/c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp
+SRCS =	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+
 OBJ_DIR = ./obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 

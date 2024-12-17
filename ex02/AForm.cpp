@@ -40,6 +40,15 @@ int const &AForm::getGradeExecute() const {
     return _gradeExecute;
 }
 
+void AForm::beSigned(Bureaucrat &b) {
+    if (_isSigned == true)
+        std::cout << "AForm is already signed" << std::endl;
+    else if (b.getGrade() <= _gradeSign)
+        _isSigned = true;
+    else
+        throw GradeTooLowException();
+}
+
 std::ostream&  operator<<(std::ostream& os, const AForm& f) {
     os << "AForm: " << f.getName() << std::endl << 
     "isSigned: " << f._isSigned << std::endl <<
@@ -56,11 +65,6 @@ const char* AForm::GradeTooLowException::what() const throw() {
     return "the grade is too low to sign the AForm";
 }
 
-void AForm::beSigned(Bureaucrat &b) {
-    if (_isSigned == true)
-        std::cout << "AForm is already signed" << std::endl;
-    else if (b.getGrade() <= _gradeSign)
-        _isSigned = true;
-    else
-        throw GradeTooLowException();
+const char* AForm::FormNotSignedException::what() const throw() {
+    return "AForm: attempt to execute a form that is not signed!";
 }

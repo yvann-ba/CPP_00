@@ -5,8 +5,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), _target(target){
-    std::cout << "PresidentialPardonForm Parameterized Constructor Called" << std::endl;
-    
+    std::cout << "PresidentialPardonForm Parameterized Constructor Called" << std::endl;   
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target) {
@@ -22,7 +21,16 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
+PresidentialPardonForm::~PresidentialPardonForm() {
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
+    if (!getIsSigned()) {
+        throw AForm::FormNotSignedException();
+    }
+    if (executor.getGrade() > getGradeExecute()) {
+        throw AForm::GradeTooLowException();
+    }
+    std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
