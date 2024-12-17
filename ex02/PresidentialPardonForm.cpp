@@ -1,14 +1,17 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("default") {
+PresidentialPardonForm::PresidentialPardonForm()
+: AForm("PresidentialPardonForm", 25, 5), _target("default") {
     std::cout << "PresidentialPardonForm Default Constructor Called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), _target(target){
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+: AForm("PresidentialPardonForm", 25, 5), _target(target){
     std::cout << "PresidentialPardonForm Parameterized Constructor Called" << std::endl;   
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+: AForm(other), _target(other._target) {
     std::cout << "PresidentialPardonForm Copy Constructor called" << std::endl;
 }
 

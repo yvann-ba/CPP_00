@@ -1,25 +1,27 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main () {
-    try
-    {
-        Bureaucrat poppey("poppey", 30);
-        AForm tax("Tax Form", 50, 25);
+int main() {
+    try {
+        Bureaucrat bob("Bob", 1);
+        ShrubberyCreationForm shrubForm("home");
+        RobotomyRequestForm roboForm("Bender");
+        PresidentialPardonForm presForm("Marvin");
 
-        std::cout << tax << std::endl;
-        poppey.signForm(tax);
-        std::cout << tax << std::endl;
+        bob.signForm(shrubForm);
+        bob.executeForm(shrubForm);
+
+        bob.signForm(roboForm);
+        bob.executeForm(roboForm);
+
+        bob.signForm(presForm);
+        bob.executeForm(presForm);
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
     }
-
-    Bureaucrat CaptainFlam("Captain Flam", 50);
-    AForm SpaceTax("Space Tax form", 20, 15);
-    std::cout << SpaceTax << std::endl;
-    CaptainFlam.signForm(SpaceTax);
-    
     return 0;
 }
