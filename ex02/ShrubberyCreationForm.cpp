@@ -37,21 +37,24 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > getGradeExecute()) {
         throw AForm::GradeTooLowException();
     }
-    std::ofstream ofs(_target + "_shrubbery");
+    std::ofstream ofs((_target + "_shrubbery").c_str());
     if (!ofs) {
         std::cerr << "Error: Could not create file" << std::endl;
         return;
     }
-    ofs << "     .        +          .      .\n"
-        << "   .            _        .                    .\n"
-        << " ,              /;-._,-.____        ,-----.__\n"
-        << "((        .    (_:#::_.__/ B  `'-._/ ,.\n"
-        << " `                 \\   \\       ,  /#\n"
-        << "                     |  |     ,-\n"
-        << "                     |  |    (\n"
-        << "                     |  |     '-.\n"
-        << "                     |  |\n"
-        << "                     |  |\n";
+    ofs << "          &&& &&  & &&\n"
+        << "      && &\\/&\\|& ()|/ @, &&\n"
+        << "      &\\/(/&/&||/& /_/)_&/_&\n"
+        << "   &() &\\/&|()|/&\\/ '%\" & ()\n"
+        << "  &_\\_&&_\\ |& |&&/&__%_/_& &&\n"
+        << "&&   && & &| &| /& & % ()& /&&\n"
+        << "   ()&_---()&\\&\\|&&-&&--%---()~\n"
+        << "       &&     \\|||\n"
+        << "                |||\n"
+        << "                |||\n"
+        << "                |||\n"
+        << "          , -=-~  .-^- _\n";
+
     ofs.close();
     std::cout << "ShrubberyCreationForm executed successfully" << std::endl;
 }

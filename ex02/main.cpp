@@ -6,7 +6,7 @@
 
 int main() {
     try {
-        Bureaucrat bob("Bob", 1);
+        Bureaucrat bob("Bob", 150);
         ShrubberyCreationForm shrubForm("home");
         RobotomyRequestForm roboForm("Bender");
         PresidentialPardonForm presForm("Marvin");
