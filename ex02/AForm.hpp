@@ -40,7 +40,6 @@ public:
 
     virtual void execute(Bureaucrat const &executor) const = 0;
 
-    friend std::ostream& operator<<(std::ostream& os, const AForm& f);
     
 private:
     const std::string _name;
@@ -50,5 +49,7 @@ private:
 
 
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

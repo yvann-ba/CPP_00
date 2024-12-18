@@ -42,9 +42,9 @@ int const &Form::getGradeExecute() const {
 
 std::ostream&  operator<<(std::ostream& os, const Form& f) {
     os << "Form: " << f.getName() << std::endl << 
-    "isSigned: " << f._isSigned << std::endl <<
-    "grade required to sign it: " << f._gradeSign << std::endl <<
-    "grade required to execute it: " << f._gradeExecute  << std::endl;
+    "isSigned: " << f.getIsSigned() << std::endl <<
+    "grade required to sign it: " << f.getGradeSign() << std::endl <<
+    "grade required to execute it: " << f.getGradeExecute()  << std::endl;
     return os;
 }
 

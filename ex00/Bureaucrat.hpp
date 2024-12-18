@@ -27,12 +27,13 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
     
 private:
     const std::string _name;
     int _grade;
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

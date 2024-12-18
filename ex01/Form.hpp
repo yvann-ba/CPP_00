@@ -34,7 +34,6 @@ public:
 
     void beSigned(Bureaucrat &b);
 
-    friend std::ostream& operator<<(std::ostream& os, const Form& f);
     
 private:
     const std::string _name;
@@ -44,5 +43,7 @@ private:
 
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
