@@ -1,9 +1,9 @@
-NAME = ./ex00
+NAME = ./convert
 CPP = /bin/c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp
+SRCS =	main.cpp ScalarConverter.cpp Convert.cpp
 
 OBJ_DIR = ./obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
