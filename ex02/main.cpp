@@ -1,14 +1,33 @@
-#include "ScalarConverter.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include "Base.hpp"
 
-int main(int argc, char **argv)
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+int main()
 {
-    if (argc != 2)
+    std::srand(std::time(NULL));
+
+    for (int i = 0; i < 5; i++)
     {
-        std::cout << "Usage: " << argv[0] << " <literal>" << std::endl;
-        return 1;
+        Base* basePtr = generate();
+
+        std::cout << "identify(*p): ";
+        identify(basePtr);
+
+        std::cout << "identify(&p): ";
+        identify(*basePtr);
+
+        delete basePtr;
+
+        std::cout << "-----------------" << std::endl;
     }
 
-    ScalarConverter::convert(argv[1]);
     return 0;
 }
