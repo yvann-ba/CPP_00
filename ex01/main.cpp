@@ -5,8 +5,8 @@
 int main()
 {
     Data myData;
-    myData.id = 43545;
-    myData.name = "Exfdghjgample";
+    myData.id = 3000;
+    myData.name = "Captain Flam";
 
     std::cout << "Original Data pointer: " << &myData << std::endl;
     std::cout << "myData.id   = " << myData.id << std::endl;
@@ -20,11 +20,11 @@ int main()
 
     if (dataPtr == &myData)
     {
-        std::cout << "Pointers match! The serialization/deserialization worked." << std::endl;
+        std::cout << "Pointers match! The serialization/deserialization worked" << std::endl;
     }
     else
     {
-        std::cout << "Pointers do NOT match! Something went wrong." << std::endl;
+        std::cout << "Pointers do NOT match!" << std::endl;
     }
 
     std::cout << "dataPtr->id   = " << dataPtr->id << std::endl;
