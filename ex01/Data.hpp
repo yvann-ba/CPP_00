@@ -5,8 +5,13 @@
 
 struct Data
 {
+public:
     int         id;
     std::string name;
+    Data();
+    Data(const Data &other);
+    Data &operator=(const Data &other);
+    ~Data();
 };
 
 #endif
