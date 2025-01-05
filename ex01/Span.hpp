@@ -33,8 +33,6 @@ public:
             ++begin;
         }
     }
-
-    
 };
 
 #endif
