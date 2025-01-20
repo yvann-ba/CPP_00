@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <cctype>
+
 BitcoinExchange::BitcoinExchange()
 {
 }
@@ -25,6 +26,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 BitcoinExchange::~BitcoinExchange()
 {
 }
+
 bool BitcoinExchange::loadDatabase(const std::string &csvFile)
 {
     std::ifstream file(csvFile.c_str());
@@ -125,7 +127,8 @@ bool BitcoinExchange::parseDate(const std::string &date, int &year, int &month, 
 bool BitcoinExchange::isLeapYear(int year) const
 {
     if (year < 0)
-        return false;    if ((year % 400) == 0)
+        return false;
+    if ((year % 400) == 0)
         return true;
     if ((year % 100) == 0)
         return false;
@@ -137,7 +140,8 @@ bool BitcoinExchange::isLeapYear(int year) const
 bool BitcoinExchange::isValidYMD(int year, int month, int day) const
 {
     if (year < 0)
-        return false;    if (month < 1 || month > 12)
+        return false;
+    if (month < 1 || month > 12)
         return false;
     if (day < 1 || day > 31)
         return false;

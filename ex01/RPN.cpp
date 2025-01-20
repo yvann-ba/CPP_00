@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <iostream>
+
 RPN::RPN() {}
 
 RPN::RPN(const RPN &other)
@@ -55,7 +56,8 @@ int RPN::calculateExpression(const std::string &expr)
             if (stk.size() < 2)
                 throw std::runtime_error("not enough operands for operator " + token);
 
-            int b = stk.top();            stk.pop();
+            int b = stk.top();
+            stk.pop();
             int a = stk.top();
             stk.pop();
 
@@ -66,7 +68,8 @@ int RPN::calculateExpression(const std::string &expr)
         {
             if (token.size() == 1 && token[0] >= '0' && token[0] <= '9')
             {
-                int value = token[0] - '0';                stk.push(value);
+                int value = token[0] - '0';
+                stk.push(value);
             }
             else
             {
@@ -78,4 +81,5 @@ int RPN::calculateExpression(const std::string &expr)
     if (stk.size() != 1)
         throw std::runtime_error("invalid RPN expression (stack not size 1)");
 
-    return stk.top();}
+    return stk.top();
+}

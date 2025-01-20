@@ -21,6 +21,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 }
 
 PmergeMe::~PmergeMe() {}
+
 bool PmergeMe::parseArguments(int argc, char **argv)
 {
     if (argc < 2)
@@ -55,17 +56,23 @@ void PmergeMe::sortAndPrintResults()
         std::cout << _numbersVector[i] << (i + 1 < _numbersVector.size() ? " " : "");
     std::cout << std::endl;
 
-    std::vector<int> tempVector = _numbersVector;    clock_t startVec = clock();    fordJohnsonSortVector(tempVector);
+    std::vector<int> tempVector = _numbersVector;
+    clock_t startVec = clock();
+    fordJohnsonSortVector(tempVector);
     clock_t endVec   = clock();
+
     std::deque<int> tempDeque = _numbersDeque;
-    clock_t startDeq = clock();    fordJohnsonSortDeque(tempDeque);
+    clock_t startDeq = clock();
+    fordJohnsonSortDeque(tempDeque);
     clock_t endDeq   = clock();
+
     std::cout << "After:  ";
     for (size_t i = 0; i < tempVector.size(); i++)
         std::cout << tempVector[i] << (i + 1 < tempVector.size() ? " " : "");
     std::cout << std::endl;
 
-    double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;    double timeDeq = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000.0;
+    double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;
+    double timeDeq = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000.0;
     std::cout << "Time to process a range of " << _numbersVector.size()
               << " elements with std::vector : " << timeVec << " us" << std::endl;
 
@@ -80,7 +87,9 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
     createPairsAndSort(pairs, arr);
 
     std::vector<int> smallChain;
-    smallChain.reserve(pairs.size());    for (size_t i = 0; i < pairs.size(); i++)
+    smallChain.reserve(pairs.size());
+    
+    for (size_t i = 0; i < pairs.size(); i++)
         smallChain.push_back(pairs[i].first);
 
     for (size_t i = 1; i < smallChain.size(); i++)

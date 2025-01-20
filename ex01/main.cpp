@@ -1,6 +1,7 @@
 #include "RPN.hpp"
 #include <iostream>
 #include <stdexcept>
+
 int main(int argc, char **argv)
 {
     if (argc != 2)
