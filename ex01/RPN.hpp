@@ -11,10 +11,6 @@ public:
     RPN &operator=(const RPN &other);
     ~RPN();
 
-    // This function takes an RPN expression (e.g. "8 9 * ...")
-    // and returns the result as an integer.
-    // If there's an error in the expression, we throw an exception (or return false, etc.).
-    // We'll use an exception approach for demonstration.
     int calculateExpression(const std::string &expr);
 
 private:

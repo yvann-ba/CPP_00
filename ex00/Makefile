@@ -15,7 +15,6 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	$(CPP) -c $< -o $@ $(CPPFLAGS)
-	
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
